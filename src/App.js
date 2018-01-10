@@ -1,26 +1,30 @@
 import React, { Component } from 'react'; 
-import axios from "axios";
+
+/*DO NOT NEED*/
+// import axios from "axios";
+
 import logo from './logo.svg';
 import './App.css';
 
-import routes from "./routes.js";
+import routes from "./routes";
 
 class App extends Component {
-constructor(props){
-  super(props);
+  /*DO NOT NEED*/
+// constructor(props){
+//   super(props);
 
-  this.state = {
-    test: null
-  };
-}
-componentDidMount(){
-  axios.get('/api/me')
-  .then(response => {
-    console.log( response );
-    this.setState({ test: response.data });
-  })
-  .catch(console.log);
-}
+//   this.state = {
+//     test: null
+//   };
+// }
+// componentDidMount(){
+//   axios.get('/api/me')
+//   .then(response => {
+//     console.log( response );
+//     this.setState({ test: response.data });
+//   })
+//   .catch(console.log);
+// }
 //because we are on App.js any code in this header will show up on every page.
   render() {
     return (

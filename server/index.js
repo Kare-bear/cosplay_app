@@ -20,7 +20,7 @@ const app = express();
 
 massive( process.env.CONNECTION_STRING )
     .then( db => {
-      app.set( " db ", db);
+      app.set( "db", db);
 })
     .catch( console.log );
 
@@ -40,32 +40,50 @@ app.use(
 app.use( passport.initialize() );
 app.use( passport.session() );
 
+//****any stored user data to the DB will be done through here****
 passport.use( new Auth0Strategy(
     {
     domain: AUTH_DOMAIN,
     clientSecret: CLIENT_SECRET,
     clientID: CLIENT_ID,
-    callbackURL: '/login',
+    callbackURL: '/auth',
     scope: "profile openid"
     }, 
-    ( accessToken, refrehToken, extraParams, profile, done ) => {
+    ( accessToken, refreshToken, extraParams, profile, done ) => {
         console.log(profile)
-    return done( null, profile )
-}));
+
+    app.get( 'db' )
+    .getUserByAuthid(profile.id)
+    .then(response => {
+        if(!response[0]){
+            app.get( 'db' )
+            .createUserByAuthid([profile.id, profile.displayName])
+            .then(created => {
+              return done(null, created[0]);
+            });
+        }else{
+            return done(null, response[0]);
+        }
+    });
+
+//   return done(null, profile);
+    }
+  )
+);
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
-//this .get will need to change to avoid issues with /login being used already.
-app.get('/login', passport.authenticate("auth0", {
+//this .get will need to change to avoid issues with /login being used already. DONE*
+app.get('/auth', passport.authenticate("auth0", {
     successRedirect: "http://localhost:3000/",
-    failureRedirect: "/login"
+    failureRedirect: "http://localhost3000/login"
     })
  );
 
  app.get('/api/me', (req, res, next) => {
      if(req.user) res.json(req.user);
-     else res.redirect("/login");
+     else res.redirect("/auth");
  });
 
 app.get("/api/test", ( req, res ) => {
@@ -76,6 +94,14 @@ app.get("/api/test", ( req, res ) => {
     .then( response => {
         res.json(response);
     })
+    .catch(console.log);
+});
+
+app.put("/api/name", (req, res)=> {
+    const db = req.app.get('db');
+
+    db.updateUsername([req.body.id, req.body.name])
+    .then(response => res.json(response[0]))
     .catch(console.log);
 });
 

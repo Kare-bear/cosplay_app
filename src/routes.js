@@ -1,19 +1,15 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-//dummy route
-function Home(){
-    return <div>HOME</div>;
-}
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Create from "./components/Create/Create";
 
-//dummy route
-function Login(){
-    return <div>LOGIN</div>;
-}
 
 export default(
     <Switch>
         <Route exact path = "/" component = { Home } />
         <Route path = "/login" component = { Login } />
+        <Route path = "/create" component = { Create } />
     </Switch>
 );

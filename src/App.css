@@ -7,9 +7,16 @@
   height: 80px;
 }
 
+.App-coverImg {
+  width: 40%;
+  height: 100%;
+  display: flex;	
+	justify-content: flex-end;
+}
+
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 225px;
   padding: 20px;
   color: white;
 }
