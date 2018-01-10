@@ -15,7 +15,7 @@ class Home extends Component {
             
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -38,12 +38,12 @@ class Home extends Component {
         <div>
             <div>
                 <h1>PlaceHolder</h1>
-                <Link to="/Create">
-                <button className = "Button-Create">Create Account</button>
+                <Link to="/Choose">
+                <button className = "Button-Choose">Create Account</button>
                 </Link>
-                <Link to="/login">
+                <a href = { process.env.REACT_APP_LOGIN}>
                 <button className = "Button-Login">Login</button>
-                </Link>
+                </a>
                 {/* <input 
                 type = "text" 
                 onChange = {e => this.handleChange(e.target.value)}

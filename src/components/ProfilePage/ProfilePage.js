@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import tempImg from './upNaway.jpg';
+import "./ProfilePage.css";
 
-export default class Login extends Component {
+export default class ProfilePage extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-            name :"Kara",
-            otherName: "Notkara"
+            
         };
     }
 
@@ -18,8 +19,9 @@ componentDidMount(){
     render(){
       return(
         <div>
-            <a href = { process.env.REACT_APP_LOGIN}>
-                <button>Login</button>
+            <h1>UP, UP AND AWAY!</h1>
+            <a>
+                <img src={tempImg} className="Profile-Temp" alt="temp" />
             </a>
         </div>
       );
