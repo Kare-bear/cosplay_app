@@ -47,7 +47,7 @@ passport.use( new Auth0Strategy(
     clientSecret: CLIENT_SECRET,
     clientID: CLIENT_ID,
     callbackURL: '/auth',
-    scope: "profile openid"
+    scope: "openid profile"
     }, 
     ( accessToken, refreshToken, extraParams, profile, done ) => {
         console.log(profile)

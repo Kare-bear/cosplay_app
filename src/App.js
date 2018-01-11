@@ -35,13 +35,13 @@ class App extends Component {
           <h1 className="App-title">COSPLAY COMMUNITY(un-named)</h1>
           <div className = "App-bar">
           <Link to = "/">
-          <a>HOME</a>
+          <h3>HOME</h3>
           </Link>
           <Link to = "/About">
-          <a>ABOUT</a>
+          <h3>ABOUT</h3>
           </Link>
           <Link to = "/Contact">
-          <a>CONTACT US</a>
+          <h3>CONTACT US</h3>
           </Link>
           </div>
         </header>
