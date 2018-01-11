@@ -18,7 +18,7 @@ componentDidMount(){
       return(
         <div>
 
-            <Link to="/ProfilePage">
+            <Link to="/ProfileUser">
                 <button className = "User-Submit">SUBMIT</button>
             </Link>
         </div>

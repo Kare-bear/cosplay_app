@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import { Link } from "react-router-dom";
 
 /*DO NOT NEED*/
 // import axios from "axios";
@@ -32,6 +33,17 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">COSPLAY COMMUNITY(un-named)</h1>
+          <div className = "App-bar">
+          <Link to = "/">
+          <a>HOME</a>
+          </Link>
+          <Link to = "/About">
+          <a>ABOUT</a>
+          </Link>
+          <Link to = "/Contact">
+          <a>CONTACT US</a>
+          </Link>
+          </div>
         </header>
         {routes}
       </div>

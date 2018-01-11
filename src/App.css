@@ -21,6 +21,16 @@
   color: white;
 }
 
+.App-bar {
+  color: white;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: flex-end;
+}
+
 .App-title {
   font-size: 1.5em;
 }

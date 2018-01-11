@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class Creator extends Component {
+import UserImg from "./UserImg.jpg";
+import "./ProfileUser.css";
+
+export default class ProfileUser extends Component {
     constructor(props){
         super(props);
 
@@ -17,10 +20,10 @@ componentDidMount(){
     render(){
       return(
         <div>
-            
-            <Link to="/ProfileCreator">
-                <button className = "Creator-Submit">SUBMIT</button>
-            </Link>
+            <h1>You're a user</h1>
+            <a>
+            <img src={UserImg} className="User-Temp" alt="temp" />
+            </a>
         </div>
       );
    }

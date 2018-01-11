@@ -35,15 +35,21 @@ class Home extends Component {
     render(){
         console.log(this.props)
       return(
-        <div>
+        <div className = "Home">
             <div>
-                <h1>PlaceHolder</h1>
-                <Link to="/Choose">
-                <button className = "Button-Choose">Create Account</button>
-                </Link>
-                <a href = { process.env.REACT_APP_LOGIN}>
-                <button className = "Button-Login">Login</button>
-                </a>
+                <div className = "Home-title">
+                    <h1>PlaceHolder Home Page</h1>
+                </div>
+
+                <div className = "Home-buttons">
+                    <Link to="/Choose">
+                        <button className = "Button-Choose">Create Account</button>
+                    </Link>
+                    <a href = { process.env.REACT_APP_LOGIN}>
+                        <button className = "Button-Login">Login</button>
+                    </a>
+                </div>
+
                 {/* <input 
                 type = "text" 
                 onChange = {e => this.handleChange(e.target.value)}
@@ -59,9 +65,9 @@ class Home extends Component {
                 </div>
             )}
             {this.props.user && (
-              <div>
+                <div>
                 { this.props.user.name }
-              </div>
+                </div>
             )}
         </div>            
       );   

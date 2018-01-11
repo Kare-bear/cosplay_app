@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class Creator extends Component {
+export default class About extends Component {
     constructor(props){
         super(props);
 
@@ -17,10 +17,7 @@ componentDidMount(){
     render(){
       return(
         <div>
-            
-            <Link to="/ProfileCreator">
-                <button className = "Creator-Submit">SUBMIT</button>
-            </Link>
+            <h1>this is the about page</h1>
         </div>
       );
    }
