@@ -50,18 +50,23 @@ passport.use( new Auth0Strategy(
     scope: "openid profile"
     }, 
     ( accessToken, refreshToken, extraParams, profile, done ) => {
-        console.log(profile)
+        
 
     app.get( 'db' )
     .getUserByAuthid(profile.id)
     .then(response => {
+        console.log(response)
         if(!response[0]){
+            const {sub, name, gender, locale}= profile._json
+            console.log(profile._json)
             app.get( 'db' )
-            .createUserByAuthid([profile.id, profile.displayName])
+            .createUserByAuthid({id: sub, name: name, gender: gender, locale: locale })
             .then(created => {
+                console.log(created)
               return done(null, created[0]);
             });
         }else{
+            console.log("work!!!")
             return done(null, response[0]);
         }
     });

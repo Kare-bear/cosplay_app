@@ -5,4 +5,6 @@ CREATE TABLE users (
     age integer,
     bio varchar(500),
     image_url text,
+    gender varchar(15),
+    locale text,
     authid serial);
