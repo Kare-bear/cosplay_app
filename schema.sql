@@ -7,4 +7,4 @@ CREATE TABLE users (
     image_url text,
     gender varchar(15),
     locale text,
-    authid serial);
+    authid text);

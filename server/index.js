@@ -79,9 +79,9 @@ passport.use( new Auth0Strategy(
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
-//this .get will need to change to avoid issues with /login being used already. DONE*
+
 app.get('/auth', passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/",
+    successRedirect: "http://localhost:3000/Choose",
     failureRedirect: "http://localhost3000/login"
     })
  );
@@ -105,7 +105,7 @@ app.get("/api/test", ( req, res ) => {
 app.put("/api/name", (req, res)=> {
     const db = req.app.get('db');
 
-    db.updateUsername([req.body.id, req.body.name])
+    db.updateUser([req.body.id, req.body.name, req.body.age, req.body.gender, req.body.bio, req.body.locale])
     .then(response => res.json(response[0]))
     .catch(console.log);
 });

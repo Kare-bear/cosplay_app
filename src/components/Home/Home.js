@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import coverImg from './heroes_cover.jpg';
 import "./Home.css";
 
-import { retrieveUser, updateUsername } from "../../ducks/user";
+import { retrieveUser, updateUser } from "../../ducks/user";
 
 class Home extends Component {
     constructor(props){
@@ -29,7 +29,7 @@ class Home extends Component {
 
     //*****/
     handleSubmit(){
-        this.props.updateUsername(this.state.textInput, this.props.user.authid);
+        this.props.updateUser(this.state.textInput, this.props.user.authid);
     }
 
     render(){
@@ -42,12 +42,16 @@ class Home extends Component {
                 </div>
 
                 <div className = "Home-buttons">
-                    <Link to="/Choose">
+                <a href = { process.env.REACT_APP_LOGIN}>
                         <button className = "Button-Choose">Create Account</button>
-                    </Link>
+                    </a>
                     <a href = { process.env.REACT_APP_LOGIN}>
                         <button className = "Button-Login">Login</button>
                     </a>
+                    <hr/>
+                    <Link to="/ActiveProfile">
+                <button className = "temp">TEST PROFILES</button>
+                </Link>
                 </div>
 
                 {/* <input 
@@ -77,4 +81,4 @@ class Home extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { retrieveUser, updateUsername})( Home );
+export default connect(mapStateToProps, { retrieveUser, updateUser})( Home );

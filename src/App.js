@@ -26,17 +26,24 @@ class App extends Component {
 //   })
 //   .catch(console.log);
 // }
+
+/*the HOME button should reroute back to the profile page once they are working */
+
 //because we are on App.js any code in this header will show up on every page.
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <Link to = "/">
           <h1 className="App-title">COSPLAY COMMUNITY(un-named)</h1>
+          </Link>
           <div className = "App-bar">
+
           <Link to = "/">
           <h3>HOME</h3>
           </Link>
+         
           <Link to = "/About">
           <h3>ABOUT</h3>
           </Link>

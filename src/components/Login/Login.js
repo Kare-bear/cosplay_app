@@ -6,8 +6,7 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            name :"Kara",
-            otherName: "Notkara"
+            
         };
     }
 

@@ -3,7 +3,7 @@ import axios from "axios";
 const RETRIEVE_USER = "RETRIEVE_USER";
 const UPDATE_NAME = "UPDATE_NAME";
 
-export function updateUsername(name, id){
+export function updateUser(name, id){
     return{
         type: UPDATE_NAME,
         payload: axios
@@ -22,6 +22,14 @@ export function retrieveUser(){
             .catch(console.log)
     };
 }
+
+export const selectUser = (user) => {
+    console.log("This is ", user.name,"'s","profile.");
+    return{
+        type:'USER_SELECTED',
+        payload: user
+    }
+};
 
 const initialState = {
     user: {},
@@ -46,8 +54,6 @@ export default function user( state = initialState, action){
                 didError: true
             });
 
-        case `${UPDATE_NAME}_FULFILLED`:
-            return Object.assign( {}, state, { user: action.payload});
 
 
         default:

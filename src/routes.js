@@ -10,6 +10,7 @@ import Choose from "./components/Choose/Choose";
 import User from "./components/User/User";
 import ProfileCreator from "./components/ProfileCreator/ProfileCreator";
 import ProfileUser from "./components/ProfileUser/ProfileUser";
+import ActiveProfile from "./components/ActiveProfile/ActiveProfile";
 
 
 export default(
@@ -23,5 +24,6 @@ export default(
         <Route path = "/profileUser" component = { ProfileUser } />
         <Route path = "/about" component = { About } />
         <Route path = "/contact" component = { Contact } />
+        <Route path = "/activeProfile" component = { ActiveProfile } />
     </Switch>
 );

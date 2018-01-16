@@ -18,6 +18,8 @@ componentDidMount(){
       return(
         <div>
             <h1>CHOOSE YOUR CLASS</h1>
+
+            <div>Are you the creative type or do you prefer to purchase your look?</div>
                 
                 <Link to="/Creator">
                 <button className = "Choose-Creator">CREATOR</button>
